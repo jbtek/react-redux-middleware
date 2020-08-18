@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addTodo } from "../store/actions/ToDoAction";
+import { addTodo } from "../store/actions/todo.action";
 let AddToDo = ({ onClick }) => {
   return (
     <div className="todoinput">
