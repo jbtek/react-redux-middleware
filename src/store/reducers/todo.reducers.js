@@ -4,16 +4,17 @@ const initialState = {
   todoList: []
 };
 
-const todoReducers = (state, action) => {
+const todoReducers = (state = initialState, action) => {
   switch (action.type) {
-    case "ADD_TODO":
+      case "ADD_TODO":
       console.log(action.text, ":::", action.id);
       return {
         ...state,
-        text: action.text
-      };
+        text: action.text,
+        todoList: action.todoList
+      }
     default:
-      return initialState;
+      return state;
   }
 };
 export default todoReducers;

@@ -15,13 +15,15 @@ let AddToDo = ({ onClick }) => {
   );
 };
 let input;
+let todoList = []
 const mapStateToProps = () => ({
   text: input
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
   onClick: () => {
-    dispatch(addTodo(input));
+      todoList.push(input);
+    dispatch(addTodo(input,todoList));
   }
 });
 
