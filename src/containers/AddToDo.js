@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { addTodo } from "../store/actions/todo.action";
-let AddToDo = ({ onClick, text }) => {
+let AddToDo = ({ onClick, todoList }) => {
   return (
     <div className="todoinput">
       <input
@@ -10,7 +10,7 @@ let AddToDo = ({ onClick, text }) => {
         placeholder="Enter a item"
       />
       <button onClick={onClick}>Add Todo List</button>
-      <p>{text}</p>
+      <p>{JSON.stringify(todoList)}</p>
     </div>
   );
 };
@@ -24,7 +24,7 @@ let todoList = []
  * @returns {{text: *}}
  */
 const mapStateToProps = (state, props) => ({
-  text: state.todo.text
+  todoList: state.todo.todoList
 });
 
 /**
