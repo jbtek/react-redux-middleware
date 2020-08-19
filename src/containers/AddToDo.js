@@ -23,7 +23,7 @@ let todoList = []
  * @param state
  * @returns {{text: *}}
  */
-const mapStateToProps = state => ({
+const mapStateToProps = (state, props) => ({
   text: state.todo.text
 });
 
