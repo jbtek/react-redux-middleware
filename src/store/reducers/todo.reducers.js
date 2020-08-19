@@ -18,7 +18,7 @@ const todoReducers = (state = initialState, action) => {
       }
 
       case REMOVE_TODO:
-          console.log(action.text, ":::", action.id);
+          console.log("REMOVE_TODO:::", action.text);
           return {
               ...state,
               text: null,
