@@ -12,7 +12,6 @@ let AddToDo = ({ onClick, todoList }) => {
         placeholder="Enter a item"
       />
       <button onClick={onClick}>Add Todo List</button>
-      <p>{JSON.stringify(todoList)}</p>
     </div>
   );
 };
