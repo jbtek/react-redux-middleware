@@ -17,7 +17,7 @@ let ToDoList = ({todoList, onClick}) => {
     return (
            <ul className="todoList">{
                todoList.map((item) => {
-                return <List key={item.id.toString()} value={item.text} onClick={onClick}/>
+                return <List key={item.id.toString()} value={item} onClick={onClick}/>
                })
            }
            </ul>
