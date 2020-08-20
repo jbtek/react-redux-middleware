@@ -1,11 +1,8 @@
 import {ADD_TODO, REMOVE_TODO} from "../constants/constants";
 
-let nextTodoId = 0;
-export const addTodo = (text,todoList) => ({
+export const addTodo = (text) => ({
   type: ADD_TODO,
-  id: nextTodoId++,
-  text,
-  todoList
+  text
 });
 
 export const removeTodo = (text) => ({

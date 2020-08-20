@@ -1,5 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
+import {createStructuredSelector} from 'reselect'
+import {getTodoList} from '../store/selectors/todo.selector'
 import { addTodo } from "../store/actions/todo.action";
 let AddToDo = ({ onClick, todoList }) => {
   return (
@@ -15,17 +17,23 @@ let AddToDo = ({ onClick, todoList }) => {
   );
 };
 let input;
-let todoList = []
 /**
  * this will get props of particular state that is changed after any actions and pass it like
  * prop in this components, and any state props will be available for this component.
  * if we pass (state,ownProps): then it will change if either one is changed.
  * @param state
  * @returns {{text: *}}
+ * User Reselect(selectors) lib and on this function use it so that it will not render if
+ * value/state is not changed,otherwise it will be rendered because state will be always create
+ * new but value will be the same.
+ * Selectors(getTodoList: it is available and sharable all over applicatio and selector
+ * will memoized the data and once data is changed then it will triggered.
+ * createStructuredSelector: it takes an objects of multiple selectors and no need to pass state.
+ * it help out if we have dozens of selector call in a components.
  */
-const mapStateToProps = (state, props) => ({
-  todoList: state.todo.todoList
-});
+const mapStateToProps = createStructuredSelector({
+    todoList:getTodoList
+})
 
 /**
  *
@@ -37,8 +45,7 @@ const mapStateToProps = (state, props) => ({
  */
 const mapDispatchToProps = (dispatch, props) => ({
   onClick: () => {
-      todoList.push(input);
-    dispatch(addTodo(input,todoList));
+    dispatch(addTodo(input));
   }
 });
 
