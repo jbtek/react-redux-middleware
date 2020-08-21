@@ -1,4 +1,4 @@
-import {ADD_TODO,REMOVE_TODO} from "../constants/constants";
+import {TodoActionTypes} from "../constants/constants";
 import {addItemToDoList} from "../../utils";
 
 const initialState = {
@@ -7,14 +7,14 @@ const initialState = {
 
 const todoReducers = (state = initialState, action) => {
   switch (action.type) {
-      case ADD_TODO:
+      case TodoActionTypes.ADD_TODO:
       console.log(action.text, ":::");
       return {
         ...state,
         todoList: addItemToDoList(state.todoList,action.text)
       }
 
-      case REMOVE_TODO:
+      case TodoActionTypes.REMOVE_TODO:
           console.log("REMOVE_TODO:::", action.text);
           const removedTodList = state.todoList.filter(value => value.id!== action.id)
           return {
