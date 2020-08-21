@@ -20,8 +20,8 @@ export const fetchUserFailure = (payload) => ({
  * @returns {function(*): Promise<Response | never>}
  */
 export const fetchingUserListAsync = () =>{
-    return dispatch => {
-        dispatch(fetchUserStart)
+    return (dispatch) => {
+        dispatch(fetchUserStart());
         return fetch('https://jsonplaceholder.typicode.com/users')
             .then(res => res.json())
             .then(json => dispatch(fetchUserSuccess(json)))

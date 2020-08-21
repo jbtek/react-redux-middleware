@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import {getDynamicData, getTodoList} from '../store/selectors/todo.selector'
-import { addTodo } from "../store/actions/todo.action";
+import {getDynamicData, getTodoList} from '../../store/selectors/todo.selector'
+import { addTodo } from "../../store/actions/todo.action";
 let AddToDo = ({ onClick, todoList, todoListWihtParam }) => {
   return (
     <div className="todoinput">

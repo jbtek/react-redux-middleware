@@ -1,9 +1,9 @@
 import React  from 'react';
 import {connect} from 'react-redux'
-import {removeTodo} from "../store/actions/todo.action";
-import List from "../components/List";
+import {removeTodo} from "../../store/actions/todo.action";
+import List from "../../components/List";
 import {createStructuredSelector} from "reselect";
-import {getTodoList} from "../store/selectors/todo.selector";
+import {getTodoList} from "../../store/selectors/todo.selector";
 
 /**
  * always put key in component not inside child component ex: List has key and item.

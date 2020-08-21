@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 import todoReducers from "./todo.reducers";
+import userReducers from "./user.reducer"
 
 /**
  * this combined all the reducer and it will be a huge object(store) like this
@@ -10,6 +11,7 @@ import todoReducers from "./todo.reducers";
  * }
  */
 const rootReducers = combineReducers({
-  'todo': todoReducers
+  'todo': todoReducers,
+  'users':userReducers
 });
 export default rootReducers;
