@@ -1,5 +1,5 @@
 import {createSelector} from 'reselect';
-import {memoize} from 'lodash'
+import _ from 'lodash'
 
 const getTodoState = (state) => state.todo;
 
@@ -15,9 +15,9 @@ export const getTodoList = createSelector(
  * whole function in it. This is the HOC. like this.
  * @param id
  */
-export const getDynamicData = (id) => memoize(
-    createSelector(getTodoState,
-        (todo) => todo.todoList.map(item => {
+export const getDynamicData = (id) => _.memoize(
+    createSelector(getTodoList,
+        (todoList) => todoList.filter(item => {
             return item.id === id
         }))
     )

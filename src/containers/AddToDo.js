@@ -1,9 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import {createStructuredSelector} from 'reselect'
-import {getTodoList} from '../store/selectors/todo.selector'
+import {getDynamicData, getTodoList} from '../store/selectors/todo.selector'
 import { addTodo } from "../store/actions/todo.action";
-let AddToDo = ({ onClick, todoList }) => {
+let AddToDo = ({ onClick, todoList, todoListWihtParam }) => {
   return (
     <div className="todoinput">
       <input
@@ -11,6 +10,7 @@ let AddToDo = ({ onClick, todoList }) => {
         onChange={(e) => (input = e.target.value)}
         placeholder="Enter a item"
       />
+        <span>{JSON.stringify(todoListWihtParam)}</span>
       <button onClick={onClick}>Add Todo List</button>
     </div>
   );
@@ -29,9 +29,11 @@ let input;
  * will memoized the data and once data is changed then it will triggered.
  * createStructuredSelector: it takes an objects of multiple selectors and no need to pass state.
  * it help out if we have dozens of selector call in a components.
+ * pass the argument and return the state.
  */
-const mapStateToProps = createStructuredSelector({
-    todoList:getTodoList
+const mapStateToProps = (state, props) => ({
+        todoList: getTodoList,
+        todoListWihtParam: getDynamicData(0)(state)
 })
 
 /**
