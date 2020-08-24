@@ -8,8 +8,8 @@ import Label from '../../components/Label'
  */
 const User  = ({value, loading}) => {
     const userElem = !loading ? (<div className='user-details'>
-        <Label label='Name' value={value.name}></Label>
-        <Label label='Phone' value={value.phone}></Label>
+        <Label label='Name' value={value.name}/>
+        <Label label='Phone' value={value.phone}/>
     </div>) : <label>data is loading...</label>
     return(userElem)
 
