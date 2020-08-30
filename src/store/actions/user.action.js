@@ -27,7 +27,6 @@ export const fetchingUserListAsync = () =>{
         //     .then(res => res.json())
         //     .then(json => dispatch(fetchUserSuccess(json)))
         //     .catch(error => dispatch(fetchUserFailure(error.message)))
-
         return axios({
             url:'https://jsonplaceholder.typicode.com/users',
             responseType: "json"
