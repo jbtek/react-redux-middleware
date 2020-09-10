@@ -1,6 +1,5 @@
 import React,{Suspense, lazy} from 'react';
 import {Route, Link, Switch} from 'react-router-dom';
-import { UsersContainerStyled } from '../styles/app.style';
 const DynamicRouters = () => {
     const ToDoContainer = lazy(() => import('../containers/todo/ToDoContainer'));
     const Users = lazy(() => import('../containers/user/Users'));
