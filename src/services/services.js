@@ -5,11 +5,26 @@ const API = {
     PUT: 'put',
     DELETE: 'delete'
 }
-export const getApi = async(url,data, params) => {
+export const makeApiCall = (url,data,method,params) => {
+    switch(method){
+        case API.GET:
+            console.log('GET CALLED');
+            return getApi(url,params);
+        case API.POST:
+            return postApi(url,data);
+        case API.PUT:
+            return putApi(url,data);
+        case API.DELETE:
+            return deleteApi(url,data);
+            
+        default:
+            return getApi(url, data, params);
+    }
+}
+export const getApi = async(url,params) => {
     return axios({
         'url':url,
-        'method':API.GET,
-        'data':data
+        'method':API.GET
     })
 }
 

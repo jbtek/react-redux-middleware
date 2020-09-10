@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import {getApi, postApi, putApi, deleteApi} from '../services/services'
+import {makeApiCall} from '../services/services'
 
 /**
  * 
@@ -9,8 +9,8 @@ import {getApi, postApi, putApi, deleteApi} from '../services/services'
  * this hooks is common to make any CRUD(GET POST,PUT,DELETE) operation just need to pass
  * these three params;
  */
-const useDataApi = (data,apiUrl,method) => {
-    const [newData, setNewData] = useState();
+const useDataApi = (data,apiUrl,method, params) => {
+    const [newData, setNewData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [errorMsg, setError] = useState('');
 
@@ -23,19 +23,23 @@ const useDataApi = (data,apiUrl,method) => {
     useEffect(() => {
         //safe to call any api or subscribe some observable or event.
         const fetchData = async () => {
+            setIsLoading(true);
+            setError(null);
             try{
-            const postApiRes = await postApi(apiUrl, data)
+            const apiResponse = await makeApiCall(apiUrl, data, method, params)
+            setNewData(apiResponse.data);
             setIsLoading(false);
-            setNewData(postApiRes.data);
             } catch(error){
                 setError(error.message);
             }
         }
         fetchData();
 
-    }, [api]); //sescond arguments you give that will render if [api(propety)] will
+    }, []); //sescond arguments you give that will render if [apiUrl(propety)] will
     // change like if we get url
 
-    
+    //return the object with this updated values.
     return {isLoading, newData, errorMsg}
 }
+
+export default useDataApi
