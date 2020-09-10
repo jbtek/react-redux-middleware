@@ -7,12 +7,15 @@ import Label from '../../components/Label'
  * @constructor
  */
 const Post  = ({value, loading}) => {
-    const postElem = !loading ? (<div className='post-details'>
+    let postElem = <div className='post-details'>
         <Label label='User Id' value={value.userId}/>
         <Label label='ID' value={value.id}/>
         <Label label='Title' value={value.title}/>
         <Label label='Body' value={value.body}/>
-    </div>) : <label>data is loading...</label>
+    </div>
+    if(loading){
+        postElem = <label>data is loading...</label> 
+    }
     return(postElem)
 
 

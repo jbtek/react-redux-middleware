@@ -35,7 +35,7 @@ const useDataApi = (data,apiUrl,method, params) => {
         }
         fetchData();
 
-    }, []); //sescond arguments you give that will render if [apiUrl(propety)] will
+    }, [newData.length]); //sescond arguments you give that will render if [apiUrl(propety)] will
     // change like if we get url
 
     //return the object with this updated values.

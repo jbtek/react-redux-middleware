@@ -5,6 +5,7 @@ import {getUserFetchingSelector, getUserListSelector} from "../../store/selector
 import {fetchingUserListAsync} from "../../store/actions/user.action";
 import User from './User'
 import {UserContainerStyle} from "./user.style";
+import { UsersContainerStyled } from '../../styles/app.style';
 
 /**
  * we can create a container with statefull component if want to use lifecycle
@@ -24,7 +25,9 @@ class Users extends Component{
         const {userList, isUserListFetching} = this.props;
         const userListElement = userList.map(item => <UserContainerStyle key={item.id}><User loading={isUserListFetching} value={item}/></UserContainerStyle> )
         return (
-            userListElement
+            <UsersContainerStyled>
+            {userListElement}
+            </UsersContainerStyled>
         )
     }
 }

@@ -6,13 +6,14 @@ import React from 'react';
 import useDataApi from '../../hooks/useDataApi'
 import Post from './Post'
 import { UserContainerStyle } from '../user/user.style';
+import { UsersContainerStyled } from '../../styles/app.style';
 const Posts = () => {
     const {isLoading, newData, errorMsg} = useDataApi(null,'https://jsonplaceholder.typicode.com/posts','get', null);
-    let postListElm = isLoading ? (<div>Loading...</div>) : newData.map(item => <UserContainerStyle key={item.id}><Post loading={isLoading} value={item}/></UserContainerStyle> )
+    let postListElm = newData.map(item => <UserContainerStyle key={item.id}><Post loading={isLoading} value={item}/></UserContainerStyle> )
     if(errorMsg){
         postListElm = <div>{errorMsg}</div>
     }
-    return (postListElm)
+    return (<UsersContainerStyled>{postListElm}</UsersContainerStyled>)
 
 }
 
