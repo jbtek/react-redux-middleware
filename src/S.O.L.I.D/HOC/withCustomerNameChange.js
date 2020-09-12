@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 const WithCustomerNameChanged = WrappedComponent => (props, otherProps) => {
-    const [customer, setCustomer] = useState('');
     const hanldlCustomer = (evt) => {
-        setCustomer(evt.target.value);
+        console.log('customer change::::', evt.targe.value)
     }
     const baseElements = (
         <WrappedComponent customer={props.customer} {...otherProps}>

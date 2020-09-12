@@ -2,9 +2,10 @@ import React from 'react';
 import Label from '../../components/Label';
 const CustomerDetails = ({props, children}) => {
     const {customer} = props;
-    const customerElem = <div className="customer-details">{
+    const customerElem = <div className="customer-details">
+    {
      Object.keys(customer).map(key => {
-         <Label label={key} value={customer[key]}/>
+         return (<Label label={key} value={customer[key]}/>)
      })       
     }
     {children}

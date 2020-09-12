@@ -13,6 +13,7 @@
  * complex our code and there is lots of modification in internal logic.
  * So its voilating the OSP(open closed principles rule)
  */
+import React from 'react';
 import WithCustomer from '../HOC/withCustomer';
 import CustomerDetails from './customer-details';
 import WithCustomerNameChanged from '../HOC/withCustomerNameChange'
@@ -29,7 +30,7 @@ import WithCustomerNameChanged from '../HOC/withCustomerNameChange'
   const OpenClosePrinciple = () => {
       //So here we are doing extension not modifications, so we are following OCP.
       const CustomerWithFullDetails = WithCustomer(CustomerDetails);
-      const CustomerWithNameChanged = WithCustomerNameChanged(CustomerWithFullDetails);
+      const CustomerWithNameChanged = WithCustomerNameChanged(CustomerDetails);
       return (
           <div className="openclose-container">
           <CustomerDetails customer={customerA}/>

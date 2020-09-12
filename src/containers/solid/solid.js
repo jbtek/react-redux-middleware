@@ -1,7 +1,10 @@
-import React, { Fragment } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Fragment, lazy, Suspense } from 'react'
+import { Link, Route, Switch } from 'react-router-dom'
 //Note: If you do want to use div as wrapping container we can use Fragment as container.
-const SolidContainer = () => {
+const SolidPrinciples = ({match}) => {
+    const SingleResponsibility = lazy(() => import('../../S.O.L.I.D/single-responsibility-principles/single-responsibility'));
+    const OpenClosePrinciple =  lazy(() => import('../../S.O.L.I.D/open-close-principle/open-close'));
+    const PageNotFound  =  lazy(() => import('../pagenotfound/PageNotFound'))
     const NestedRoute = <Fragment>
         <ul>
             <li>
@@ -22,8 +25,8 @@ const SolidContainer = () => {
         </ul>
         <Suspense fallback={<div>Loading...</div>}>
     <Switch>
-        <Route exact path='/' component={ToDoContainer}/>
-        <Route exact path='/openclosed' component={Users}/>
+        <Route exact path='/' component={SingleResponsibility}/>
+        <Route exact path='/openclosed' component={OpenClosePrinciple}/>
         <Route component={PageNotFound}/>
     </Switch>
     </Suspense>
@@ -32,3 +35,4 @@ const SolidContainer = () => {
         NestedRoute
     )
 }
+export default SolidPrinciples;

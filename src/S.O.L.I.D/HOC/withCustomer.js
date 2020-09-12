@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 const WithCustomer = WrappedComponent => (props, otherProps) => {
   const baseElements = (
         <WrappedComponent customer={props.customer} {...otherProps}/>
     )
+
     return baseElements;
 }
 
