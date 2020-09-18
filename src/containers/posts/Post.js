@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Label from '../../components/Label'
 /**
  *
@@ -6,7 +6,11 @@ import Label from '../../components/Label'
  * @returns {*}
  * @constructor
  */
-const Post  = ({value, loading}) => {
+const Post  = ({value, loading, callBack}) => {
+    const [dummy, setDummy] = useState(callBack);
+    useEffect(() => {
+        setDummy(callBack);
+    },[callBack])
     let postElem = <div className='post-details'>
         <Label label='User Id' value={value.userId}/>
         <Label label='ID' value={value.id}/>

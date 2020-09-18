@@ -23,7 +23,7 @@ const SolidPrinciples = ({match}) => {
                 <Link path='/dependencies-inversion'>Dependencies Inversion</Link>
             </li>
         </ul>
-        <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div>Loading...</div>}>
     <Switch>
         <Route exact path='/' component={SingleResponsibility}/>
         <Route exact path='/openclosed' component={OpenClosePrinciple}/>

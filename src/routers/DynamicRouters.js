@@ -1,5 +1,21 @@
 import React,{Suspense, lazy} from 'react';
 import {Route, Link, Switch} from 'react-router-dom';
+/**
+ * difference between router component pros and reder pros:
+ * component prop: component create new instance of the component and it will go through the
+ * lifecycle constructor, componentWillmount, componentDidMount.
+ * So if we goto next and prev it will mounted, unmounted and again mounted.
+ * Ex:<Route path="/:locale/store">
+        <Store /> //calling as new component.
+    </Route>
+
+ * render prop: it will call as function and it did not create any new instances
+ * of component. if component instance already created then it will just return that
+ * comopnent. EX.
+ * <Route path="/:locale/store">
+    {Store()}//calling as function
+    </Route>
+ */
 const DynamicRouters = () => {
     const ToDoContainer = lazy(() => import('../containers/todo/ToDoContainer'));
     const Users = lazy(() => import('../containers/user/Users'));
