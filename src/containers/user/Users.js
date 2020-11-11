@@ -16,6 +16,31 @@ class Users extends Component{
     componentDidMount(){
         //initiate rest api here.
         console.log('componentDidMount:::::', this.props);
+        //it provide us history, location match
+        /**
+         * history:
+            action: "PUSH"
+            block: ƒ block(prompt)
+            createHref: ƒ createHref(location)
+            go: ƒ go(n)
+            goBack: ƒ goBack()
+            goForward: ƒ goForward()
+            length: 3
+            listen: ƒ listen(listener)
+            location: {pathname: "/users", search: "", hash: "", state: undefined, key: "ulo1gt"}
+            push: ƒ push(path, state)
+            replace: ƒ replace(path, state)
+         */
+        /**
+         * 
+         */
+        /**
+         * match:
+            isExact: true
+            params: {}
+            path: "/users"
+            url: "/users"
+         */
         const {fetchingUserListAsync} = this.props;
         fetchingUserListAsync();
     }
